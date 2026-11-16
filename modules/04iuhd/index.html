@@ -1,0 +1,128 @@
+<section class="modulex-zaman-kadran{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-zaman-kadran-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* zaman-kadran — Mevcut seçmeli modüller (zaman-sekme-yil sekme şeridi, zaman-kurulus-surgu doğrusal kaydırıcı) zamanı düz bir çizgide seçtirir; zaman-kadran dairesel iskelettir: çember üzerine dizilmiş yıl dilimleri, dönen ibre, ilerleme yayı ve merkez disk — döngüsel/ritüel zaman (seans, mevsim, burç) dili. */
+  .modulex-zaman-kadran { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-zaman-kadran *, .modulex-zaman-kadran *::before, .modulex-zaman-kadran *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-zaman-kadran :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-zaman-kadran :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-zaman-kadran :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-zaman-kadran :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-zaman-kadran img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-zaman-kadran) img { height: auto; }
+  .modulex-zaman-kadran [hidden] { display: none !important; }
+  .modulex-zaman-kadran :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-zaman-kadran :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-zaman-kadran-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-zaman-kadran-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-zaman-kadran--bassiz .modulex-zaman-kadran-bas { display: none; }
+  .modulex-zaman-kadran-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-zaman-kadran-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-zaman-kadran-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-zaman-kadran-bas { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px 48px; align-items: end; }
+  .modulex-zaman-kadran-ust { grid-column: 1 / -1; }
+  .modulex-zaman-kadran-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-zaman-kadran-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-zaman-kadran-dugme:hover { transform: translateY(-2px); }
+  .modulex-zaman-kadran-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-zaman-kadran-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-zaman-kadran-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-zaman-kadran-saat { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(28px, 5vw, 72px); }
+  .modulex-zaman-kadran-kadran { --yon: 1; position: relative; width: min(100%, 460px); aspect-ratio: 1; margin-inline: auto; container-type: inline-size; border: 2px solid --cizgi--; border-radius: 50%; background-color: --kartBg--; }
+  .modulex-zaman-kadran-kadran:dir(rtl) { --yon: -1; }
+  .modulex-zaman-kadran-kadran::before { content: ""; position: absolute; inset: 7%; border-radius: 50%; background-image: conic-gradient(--accent-- calc(var(--s, 0) * 360deg / var(--n)), color-mix(in srgb, --accent-- 12%, transparent) 0); mask-image: radial-gradient(closest-side, transparent 86%, black 87%); }
+  .modulex-zaman-kadran-kadran:dir(rtl)::before { transform: scaleX(-1); }
+  .modulex-zaman-kadran-kadran::after { content: ""; position: absolute; inset: 1.5%; border-radius: 50%; background-image: repeating-conic-gradient(color-mix(in srgb, --text-- 32%, transparent) 0 1.1deg, transparent 1.1deg 6deg); mask-image: radial-gradient(closest-side, transparent 92%, black 93%); pointer-events: none; }
+  .modulex-zaman-kadran-dilimler { position: absolute; inset: 0; }
+  .modulex-zaman-kadran-konum { position: absolute; inset: 0; z-index: 2; width: 64px; height: 64px; margin: auto; transform: rotate(calc(var(--i) * 360deg / var(--n) * var(--yon))) translateY(-40cqi) rotate(calc(var(--i) * -360deg / var(--n) * var(--yon))); }
+  .modulex-zaman-kadran-dilim { display: grid; place-items: center; width: 100%; height: 100%; padding: 4px; border: 2px solid --accent--; border-radius: 50%; background-color: --bg--; color: --text--; font-size: 0.86rem; font-weight: 800; line-height: 1.1; text-align: center; text-decoration: none; font-variant-numeric: tabular-nums; transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease; }
+  .modulex-zaman-kadran-dilim:hover { transform: scale(1.1); }
+  .modulex-zaman-kadran-dilim[aria-current] { background-color: --accent--; color: --accentText--; box-shadow: 0 0 0 6px color-mix(in srgb, --accent-- 22%, transparent); }
+  .modulex-zaman-kadran-ibre { position: absolute; inset-block: 15% 50%; inset-inline-start: calc(50% - 2px); z-index: 1; width: 4px; border-radius: 4px; background-color: --text--; transform: rotate(calc(var(--s, 0) * 360deg / var(--n) * var(--yon))); transform-origin: 50% 100%; transition: transform 0.6s cubic-bezier(0.3, 1.4, 0.5, 1); }
+  .modulex-zaman-kadran-merkez { position: absolute; inset: 30%; z-index: 1; display: grid; place-content: center; justify-items: center; gap: 2px; border-radius: 50%; background-color: --vurguBg--; color: --vurguText--; box-shadow: 0 18px 40px -22px color-mix(in srgb, --text-- 70%, transparent); text-align: center; }
+  .modulex-zaman-kadran-mikon { font-size: clamp(22px, 7cqi, 34px); }
+  .modulex-zaman-kadran-myil { font-size: clamp(1.3rem, 8cqi, 2.4rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+  .modulex-zaman-kadran-paneller { display: grid; gap: 16px; }
+  .modulex-zaman-kadran-panel { position: relative; display: grid; gap: 18px; padding: clamp(22px, 3vw, 36px); border-inline-start: 5px solid --accent--; border-radius: --yuvarlak--; background-color: --kartBg--; }
+  .modulex-zaman-kadran--js .modulex-zaman-kadran-panel { animation: modulex-zaman-kadran-panel 0.45s ease both; }
+  .modulex-zaman-kadran-pyazi { display: grid; gap: 10px; }
+  .modulex-zaman-kadran-pyil { display: inline-flex; align-items: center; gap: 10px; color: --accentInk--; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+  .modulex-zaman-kadran-pikon { font-size: 34px; }
+  .modulex-zaman-kadran-kbaslik { font-size: 1.4rem; font-weight: 760; }
+  .modulex-zaman-kadran-kmetin { color: --muted--; line-height: 1.75; }
+  .modulex-zaman-kadran-gorsel { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: calc(--yuvarlak-- * 0.7); }
+  @keyframes modulex-zaman-kadran-panel { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @media (max-width: 768px) {
+    .modulex-zaman-kadran-saat { grid-template-columns: minmax(0, 1fr); }
+    .modulex-zaman-kadran-kadran { width: min(100%, 340px); }
+    .modulex-zaman-kadran-konum { width: 52px; height: 52px; }
+    .modulex-zaman-kadran-dilim { font-size: 0.74rem; }
+  }
+  .modulex-zaman-kadran-bag { color: inherit; text-decoration: none; }
+  .modulex-zaman-kadran-bag::after { content: ""; position: absolute; inset: 0; z-index: 3; }
+  .modulex-zaman-kadran-bag:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-zaman-kadran :is(.modulex-zaman-kadran-baslik, .modulex-zaman-kadran-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-zaman-kadran-baslik { line-height: 1.35; }
+  @media (max-width: 1024px) {
+    .modulex-zaman-kadran-bas { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .modulex-zaman-kadran { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-zaman-kadran *, .modulex-zaman-kadran *::before, .modulex-zaman-kadran *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-zaman-kadran";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const kadranSec = (s, P) => {
+        const kok = s.querySelector("[data-kadran]");
+        if (!kok) return;
+        const D = [...kok.querySelectorAll("[data-kd]")];
+        const Pn = [...kok.querySelectorAll("." + P + "-panel")];
+        if (D.length < 2 || D.length !== Pn.length) return;
+        s.classList.add(P + "--js");
+        const myil = kok.querySelector("[data-kd-yil]");
+        const mik = kok.querySelector("[data-kd-ikon]");
+        let i = 0;
+        const sec = (n, odak) => {
+          i = (n + D.length) % D.length;
+          Pn.forEach((p, j) => { p.hidden = j !== i; });
+          D.forEach((d, j) => { if (j === i) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current"); });
+          kok.style.setProperty("--s", String(i));
+          if (myil) myil.textContent = Pn[i].dataset.etiket || "";
+          if (mik) { mik.textContent = Pn[i].dataset.ikon || ""; mik.hidden = !Pn[i].dataset.ikon; }
+          if (odak) D[i].focus();
+        };
+        D.forEach((d, j) => {
+          d.addEventListener("click", (e) => { e.preventDefault(); sec(j); });
+          d.addEventListener("keydown", (e) => {
+            const rtl = getComputedStyle(kok).direction === "rtl";
+            const ileri = e.key === "ArrowDown" || e.key === (rtl ? "ArrowLeft" : "ArrowRight");
+            const geri = e.key === "ArrowUp" || e.key === (rtl ? "ArrowRight" : "ArrowLeft");
+            if (!ileri && !geri) return;
+            e.preventDefault();
+            sec(i + (ileri ? 1 : -1), true);
+          });
+        });
+        sec(0);
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      kadranSec(s, P, az);
+    });
+  })();
+</script>

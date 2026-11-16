@@ -1,0 +1,107 @@
+<footer class="modulex-alt-kulvar{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-alt-kulvar-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</footer>
+
+<style>
+  /* alt-kulvar — Bilgi sütunlarda değil, tam genişlikte yatay şeritlerde akar (liste öğeleri satır içinde sarar); numaralar filtrelenmiş gruplardan verilir — boş grup kulvar açmaz, numara atlamaz; şamandıra halatı yalnız iki radial-gradient. */
+  .modulex-alt-kulvar { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-alt-kulvar *, .modulex-alt-kulvar *::before, .modulex-alt-kulvar *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-alt-kulvar :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-alt-kulvar :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-alt-kulvar :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-alt-kulvar :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-alt-kulvar img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-alt-kulvar) img { height: auto; }
+  .modulex-alt-kulvar [hidden] { display: none !important; }
+  .modulex-alt-kulvar :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-alt-kulvar :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-alt-kulvar-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-alt-kulvar-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-alt-kulvar--bassiz .modulex-alt-kulvar-bas { display: none; }
+  .modulex-alt-kulvar-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-alt-kulvar-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-alt-kulvar-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-alt-kulvar-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-alt-kulvar-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-alt-kulvar-dugme:hover { transform: translateY(-2px); }
+  .modulex-alt-kulvar-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-alt-kulvar-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-alt-kulvar-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-alt-kulvar-bag { color: inherit; text-decoration: none; transition: color 0.2s ease; }
+  .modulex-alt-kulvar-bag:hover { color: --accentInk--; text-decoration: underline; text-underline-offset: 4px; }
+  .modulex-alt-kulvar-bag[aria-current="page"] { color: --accentInk--; font-weight: 700; }
+  .modulex-alt-kulvar-logo { display: inline-flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; }
+  .modulex-alt-kulvar-logo img { width: auto; max-height: --logoH--; }
+  .modulex-alt-kulvar-ad { font-family: var(--mx-font-heading, inherit); font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  .modulex-alt-kulvar-bbaslik { margin-block-end: 14px; color: --accentInk--; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+  .modulex-alt-kulvar-sayfalar, .modulex-alt-kulvar-baglantilar, .modulex-alt-kulvar-iletisim, .modulex-alt-kulvar-yasal { display: grid; gap: 9px; }
+  .modulex-alt-kulvar-il { display: flex; align-items: flex-start; gap: 10px; }
+  .modulex-alt-kulvar-il-ic { display: grid; gap: 2px; }
+  .modulex-alt-kulvar-il-etiket { color: --muted--; font-size: 0.8rem; }
+  .modulex-alt-kulvar-il-ikon { flex: none; color: --accentInk--; font-size: 20px; }
+  .modulex-alt-kulvar-saatler { display: grid; gap: 6px; }
+  .modulex-alt-kulvar-saat { display: flex; justify-content: space-between; gap: 16px; }
+  .modulex-alt-kulvar-saat dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .modulex-alt-kulvar-sosyal { display: flex; flex-wrap: wrap; gap: 10px; }
+  .modulex-alt-kulvar-sosyal-a { display: inline-grid; place-items: center; width: 42px; height: 42px; border: 1px solid --cizgi--; border-radius: 50%; color: inherit; font-size: 18px; transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease; }
+  .modulex-alt-kulvar-sosyal-a:hover { border-color: --accent--; background: --accent--; color: --accentText--; transform: translateY(-2px); }
+  .modulex-alt-kulvar-hakkinda { max-width: 46ch; color: --muted--; }
+  .modulex-alt-kulvar-telif { display: flex; flex-wrap: wrap; gap: 4px 14px; color: --muted--; font-size: 0.9rem; }
+  .modulex-alt-kulvar-dil:empty { display: none; }
+  .modulex-alt-kulvar-yukari { display: inline-grid; place-items: center; flex: none; width: 46px; height: 46px; border-radius: 50%; background: --accent--; color: --accentText--; text-decoration: none; transition: transform 0.25s ease; }
+  .modulex-alt-kulvar-yukari:hover { transform: translateY(-3px); }
+  .modulex-alt-kulvar-bulten { display: grid; gap: 8px; }
+  .modulex-alt-kulvar-nl-etiket { font-size: 0.9rem; font-weight: 700; }
+  .modulex-alt-kulvar-nl-satir { display: flex; flex-wrap: wrap; gap: 8px; }
+  .modulex-alt-kulvar-nl-girdi { flex: 1 1 200px; min-width: 0; min-height: 48px; padding: 10px 18px; border: 1px solid --cizgi--; border-radius: 999px; background: --bg--; color: --text--; font: inherit; }
+  .modulex-alt-kulvar-nl-dugme { display: inline-flex; align-items: center; gap: 6px; min-height: 48px; padding: 10px 22px; border: 0; border-radius: 999px; background: --accent--; color: --accentText--; font: inherit; font-weight: 700; transition: transform 0.2s ease; }
+  .modulex-alt-kulvar-nl-dugme:hover { transform: translateY(-2px); }
+  .modulex-alt-kulvar-nl-dugme .material-symbols-outlined { font-size: 18px; }
+  .modulex-alt-kulvar-nl-durum:empty { display: none; }
+  .modulex-alt-kulvar-nl-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+  .modulex-alt-kulvar-nl-metin { color: --muted--; }
+
+  .modulex-alt-kulvar-kv-havuz { position: relative; overflow: hidden; border: 10px solid --kartBg--; border-radius: calc(--yuvarlak-- * 1.2); background-color: color-mix(in srgb, --accent-- 10%, --bg--); background-image: linear-gradient(115deg, transparent 0 40%, color-mix(in srgb, --kartBg-- 35%, transparent) 50%, transparent 60%); background-size: 260% 100%; box-shadow: 0 0 0 1px --cizgi--, inset 0 10px 22px -16px color-mix(in srgb, --text-- 50%, transparent); animation: modulex-alt-kulvar-kv-isilti 9s ease-in-out infinite alternate; }
+  @keyframes modulex-alt-kulvar-kv-isilti { from { background-position: 0% 0; } to { background-position: 100% 0; } }
+  .modulex-alt-kulvar-kv-kulvar { position: relative; display: flex; align-items: stretch; transition: background-color 0.3s ease; }
+  .modulex-alt-kulvar-kv-kulvar + .modulex-alt-kulvar-kv-kulvar::before { content: ""; position: absolute; z-index: 1; inset-inline: 0; inset-block-start: -5px; height: 10px; background: radial-gradient(circle, --accent-- 0 3.5px, transparent 4px) 0 50% / 30px 10px repeat-x, radial-gradient(circle, --kartBg-- 0 3.5px, transparent 4px) 15px 50% / 30px 10px repeat-x; pointer-events: none; }
+  .modulex-alt-kulvar-kv-kulvar:hover { background-color: color-mix(in srgb, --kartBg-- 45%, transparent); }
+  .modulex-alt-kulvar-kv-no { display: grid; place-items: center; flex: none; width: 68px; border-inline-end: 4px solid --kartBg--; background: --text--; color: --bg--; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 1.4rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+  .modulex-alt-kulvar-kv-kulvar--marka .modulex-alt-kulvar-kv-no { background: --accent--; color: --accentText--; }
+  .modulex-alt-kulvar-kv-yol { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 30px; flex: 1; min-width: 0; padding: 22px clamp(18px, 3vw, 34px) 28px; }
+  .modulex-alt-kulvar-kv-baslik { flex: 0 0 150px; color: --accentInk--; font-size: 0.8rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-alt-kulvar-kv-yol :is(.modulex-alt-kulvar-sayfalar, .modulex-alt-kulvar-baglantilar, .modulex-alt-kulvar-iletisim) { display: flex; flex-wrap: wrap; gap: 8px 26px; }
+  .modulex-alt-kulvar-kv-yol .modulex-alt-kulvar-saatler { display: flex; flex-wrap: wrap; gap: 8px 30px; }
+  .modulex-alt-kulvar-kv-yol .modulex-alt-kulvar-saat { gap: 10px; }
+  .modulex-alt-kulvar-kv-kulvar--marka .modulex-alt-kulvar-kv-yol { gap: 14px 32px; padding-block: 28px 32px; }
+  .modulex-alt-kulvar-kv-kulvar--marka .modulex-alt-kulvar-hakkinda { flex: 1 1 280px; }
+  .modulex-alt-kulvar-kv-yuzucu { position: absolute; inset-block-end: 9px; inset-inline-start: 84px; width: 12px; height: 12px; border-radius: 50%; background: --accent--; box-shadow: 0 0 0 4px color-mix(in srgb, --accent-- 25%, transparent); pointer-events: none; transition: inset-inline-start 1.6s cubic-bezier(0.4, 0, 0.2, 1); }
+  .modulex-alt-kulvar-kv-kulvar:hover .modulex-alt-kulvar-kv-yuzucu { inset-inline-start: calc(100% - 26px); }
+  .modulex-alt-kulvar-kv-dip { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-block-start: 22px; }
+  .modulex-alt-kulvar-kv-dip .modulex-alt-kulvar-telif { margin-inline-end: auto; }
+  .modulex-alt-kulvar-kv-yasal { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.9rem; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-alt-kulvar-kv-baslik { letter-spacing: 0; }
+  @media (max-width: 768px) {
+    .modulex-alt-kulvar-kv-havuz { border-width: 6px; }
+    .modulex-alt-kulvar-kv-no { width: 44px; font-size: 1rem; }
+    .modulex-alt-kulvar-kv-yol { padding: 18px 16px 28px; }
+    .modulex-alt-kulvar-kv-baslik { flex-basis: 100%; }
+    .modulex-alt-kulvar-kv-yuzucu { inset-inline-start: 56px; }
+  }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-alt-kulvar :is(.modulex-alt-kulvar-baslik, .modulex-alt-kulvar-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-alt-kulvar-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-alt-kulvar { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-alt-kulvar *, .modulex-alt-kulvar *::before, .modulex-alt-kulvar *::after { animation: none !important; transition: none !important; }
+  }
+</style>

@@ -1,0 +1,54 @@
+{
+  "order": false,
+  "user": false,
+  "description": {
+    "tr": "Akçakum Tuz Spa: Bodrum’da tuz odası, hamam, köpük, kese ve yüz bakımı; hizmet sepetiyle randevu, süreleri önceden belli ritüeller. Demo site; görseller temsilîdir.",
+    "en": "Akcakum Salt Spa: a salt room, hammam, foam, scrub and facials in Bodrum; booking with a service basket and rituals with timings set in advance. Demo site; images are representative.",
+    "ar": "أكتشاكوم سولت سبا: غرفة ملح وحمّام ورغوة وتقشير وعناية بالوجه في بودروم؛ حجز بسلة خدمات وطقوس بمدد معروفة مسبقًا. موقع تجريبي؛ الصور تمثيلية."
+  },
+  "keyword": {
+    "tr": "spa, tuz odası, hamam, köpük masajı, kese, yüz bakımı, Bodrum",
+    "en": "spa, salt room, hammam, foam massage, scrub, facial, Bodrum",
+    "ar": "سبا، غرفة الملح، حمّام، تدليك بالرغوة، تقشير، عناية بالوجه، بودروم"
+  },
+  "category": "Kurumsal",
+  "name": "Akçakum Tuz Spa",
+  "domain": "spa-3.webyapar.com",
+  "langs": {
+    "tr": true,
+    "en": true,
+    "ar": true,
+    "de": false,
+    "ru": false,
+    "es": false,
+    "fr": false,
+    "it": false,
+    "ja": false,
+    "zh": false,
+    "ko": false,
+    "pt": false
+  },
+  "logo": "logo.png",
+  "multi": false,
+  "publishMode": "static",
+  "font": {
+    "body": "noto-sans",
+    "heading": "montserrat",
+    "ar": {
+      "body": "ibm-plex-sans-arabic",
+      "heading": "ibm-plex-sans-arabic"
+    }
+  },
+  "colorScheme": "auto",
+  "theme_color": "#2A7189",
+  "seo": {
+    "noindex": true
+  },
+  "cssTokens": {
+    "--mx-radius-sm": "16px",
+    "--mx-radius-md": "26px",
+    "--mx-radius-lg": "36px",
+    "--mx-radius-xl": "999px"
+  },
+  "icon": "icon.png"
+}

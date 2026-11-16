@@ -1,0 +1,46 @@
+{
+  "id": "kalitepolitikamiz",
+  "name": {
+    "tr": "Kalite Politikamız",
+    "en": "Quality Policy",
+    "ar": "سياسة الجودة"
+  },
+  "description": {
+    "tr": "Kalite politikamız",
+    "en": "Our quality policy",
+    "ar": "سياسة الجودة لدينا"
+  },
+  "keyword": {
+    "tr": "Kalite Politikamız",
+    "en": "quality policy, quality, continuous improvement",
+    "ar": "سياسة الجودة, الجودة, التحسين المستمر"
+  },
+  "path": "kalitepolitikamiz",
+  "icon": "verified",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [],
+    "footer": []
+  },
+  "index": 2,
+  "url": "",
+  "text": {
+    "tr": "<h2>Kalite Politikamız</h2>\n<p>Tek kullanımlık kese, her misafire yeni peştamal, ürün içeriklerinin yazılı paylaşılması, saatlik temizlik turu.</p>",
+    "en": "<h2>Our quality policy</h2>\n<p>Single-use scrub mitts, a fresh peshtemal for every guest, product ingredients shared in writing and hourly cleaning rounds.</p>",
+    "ar": "<h2>سياسة الجودة لدينا</h2>\n<p>ليفة للاستعمال مرة واحدة، ومئزر جديد لكل ضيف، ومشاركة مكونات المنتجات كتابيًا، وجولة تنظيف كل ساعة.</p>"
+  },
+  "title": {
+    "tr": "Kalite Politikamız",
+    "en": "Quality Policy",
+    "ar": "سياسة الجودة"
+  },
+  "date": "2026-11-16T20:20:20.984Z",
+  "update": "2026-11-16T20:23:12.408Z",
+  "sablonIzi": "acedf6b7c400faec",
+  "sablonIziDil": {
+    "en": "587042c99dce90ca",
+    "ar": "a5348f544603b25e"
+  }
+}

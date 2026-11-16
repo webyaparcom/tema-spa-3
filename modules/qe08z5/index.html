@@ -1,0 +1,98 @@
+<section class="modulex-deger-kulvar{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-deger-kulvar-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* deger-kulvar — deger-numara-serit düz çizgili satırlardır, deger-ok-zincir ok segmentleridir; bu modülde satırlar tek bir havuz kabının içinde şamandıra halatlarıyla ayrılan kulvarlardır — çıkış bloğu + su zemini + kulvarı geçen yüzücü hareketi iskeleti ailede tek. */
+  .modulex-deger-kulvar { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-deger-kulvar *, .modulex-deger-kulvar *::before, .modulex-deger-kulvar *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-deger-kulvar :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-deger-kulvar :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-deger-kulvar :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-deger-kulvar :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-deger-kulvar img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-deger-kulvar) img { height: auto; }
+  .modulex-deger-kulvar [hidden] { display: none !important; }
+  .modulex-deger-kulvar :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-deger-kulvar :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-deger-kulvar-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-deger-kulvar-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-deger-kulvar--bassiz .modulex-deger-kulvar-bas { display: none; }
+  .modulex-deger-kulvar-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-deger-kulvar-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-deger-kulvar-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-deger-kulvar-bas { max-width: 780px; margin-inline: auto; text-align: center; justify-items: center; }
+  .modulex-deger-kulvar-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-deger-kulvar-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-deger-kulvar-dugme:hover { transform: translateY(-2px); }
+  .modulex-deger-kulvar-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-deger-kulvar-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-deger-kulvar-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-deger-kulvar-havuz { position: relative; display: grid; padding: 10px; border-radius: calc(--yuvarlak-- * 1.2); background: color-mix(in srgb, --accent-- 15%, --bg--); box-shadow: inset 0 0 0 8px color-mix(in srgb, --text-- 9%, --bg--), 0 24px 44px -36px color-mix(in srgb, --text-- 70%, transparent); }
+  .modulex-deger-kulvar-kulvar { position: relative; display: grid; grid-template-columns: 70px minmax(0, 1fr); min-height: 112px; }
+  .modulex-deger-kulvar-kulvar + .modulex-deger-kulvar-kulvar::before { content: ""; position: absolute; inset-block-start: -5px; inset-inline: 8px; z-index: 1; height: 10px; background: radial-gradient(circle at 25% 50%, --accent-- 0 4px, transparent 4.5px), radial-gradient(circle at 75% 50%, --bg-- 0 4px, transparent 4.5px), linear-gradient(color-mix(in srgb, --text-- 35%, transparent), color-mix(in srgb, --text-- 35%, transparent)) 50% 50% / 100% 1px no-repeat; background-size: 22px 10px, 22px 10px, 100% 1px; }
+  .modulex-deger-kulvar-blok { display: grid; place-items: center; margin-block: 14px; margin-inline: 4px 10px; border-radius: 8px; background: --text--; color: --bg--; font-family: var(--mx-font-heading, inherit); font-size: 1.7rem; font-weight: 800; font-variant-numeric: tabular-nums; box-shadow: 0 6px 0 color-mix(in srgb, --text-- 55%, --bg--); }
+  .modulex-deger-kulvar-su { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 18px; overflow: hidden; padding-block: 18px; padding-inline: 18px 76px; background-image: radial-gradient(60% 50% at 30% 120%, color-mix(in srgb, --bg-- 35%, transparent), transparent 70%), radial-gradient(40% 40% at 80% -20%, color-mix(in srgb, --bg-- 30%, transparent), transparent 70%); }
+  .modulex-deger-kulvar-su::before { content: ""; position: absolute; inset-block: 28%; inset-inline-end: 26px; width: 4px; border-radius: 2px; background: color-mix(in srgb, --text-- 30%, transparent); }
+  .modulex-deger-kulvar-su::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, transparent 30%, color-mix(in srgb, --bg-- 45%, transparent) 50%, transparent 70%) -200% 0 / 60% 100% no-repeat; pointer-events: none; }
+  .modulex-deger-kulvar-kulvar:hover .modulex-deger-kulvar-su::after { animation: modulex-deger-kulvar-isilti 1.4s ease-out; }
+  .modulex-deger-kulvar-ikon { display: inline-grid; place-items: center; width: 50px; height: 50px; border-radius: 50%; background: --bg--; color: --accentInk--; font-size: 26px; }
+  .modulex-deger-kulvar-yazi { display: grid; gap: 4px; }
+  .modulex-deger-kulvar-kbaslik { font-size: 1.2rem; font-weight: 800; line-height: 1.25; }
+  .modulex-deger-kulvar-kmetin { color: color-mix(in srgb, --text-- 80%, transparent); font-size: 0.96rem; }
+  .modulex-deger-kulvar-yuzucu { position: absolute; inset-block-start: 50%; inset-inline-end: 38px; color: --accentInk--; line-height: 0; translate: 0 -50%; transition: transform 1.8s cubic-bezier(0.3, 0.7, 0.3, 1) calc(var(--i) * 0.22s); }
+  .modulex-deger-kulvar-yuzucu .material-symbols-outlined { font-size: 28px; }
+  [dir="rtl"] .modulex-deger-kulvar-yuzucu .material-symbols-outlined { scale: -1 1; }
+  .modulex-deger-kulvar--hazir:not(.modulex-deger-kulvar--gor) .modulex-deger-kulvar-yuzucu { transform: translateX(-80vw); }
+  [dir="rtl"] .modulex-deger-kulvar--hazir:not(.modulex-deger-kulvar--gor) .modulex-deger-kulvar-yuzucu { transform: translateX(80vw); }
+  @keyframes modulex-deger-kulvar-isilti { to { background-position: 300% 0; } }
+  @media (max-width: 768px) {
+    .modulex-deger-kulvar-havuz { padding: 6px; }
+    .modulex-deger-kulvar-kulvar { grid-template-columns: 46px minmax(0, 1fr); min-height: 0; }
+    .modulex-deger-kulvar-blok { margin-inline: 2px 6px; font-size: 1.25rem; }
+    .modulex-deger-kulvar-su { grid-template-columns: minmax(0, 1fr); gap: 8px; padding-block: 16px; padding-inline: 12px 44px; }
+    .modulex-deger-kulvar-ikon { width: 40px; height: 40px; font-size: 22px; }
+    .modulex-deger-kulvar-yuzucu { inset-inline-end: 12px; }
+    .modulex-deger-kulvar-yuzucu .material-symbols-outlined { font-size: 22px; }
+    .modulex-deger-kulvar-su::before { display: none; }
+  }
+  .modulex-deger-kulvar-bag { color: inherit; text-decoration: none; }
+  .modulex-deger-kulvar-bag::after { content: ""; position: absolute; inset: 0; z-index: 3; }
+  .modulex-deger-kulvar-bag:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-deger-kulvar :is(.modulex-deger-kulvar-baslik, .modulex-deger-kulvar-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-deger-kulvar-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-deger-kulvar { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-deger-kulvar *, .modulex-deger-kulvar *::before, .modulex-deger-kulvar *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-deger-kulvar";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const gozlem = (s, P, az) => {
+        const gor = () => s.classList.add(P + "--gor");
+        s.classList.add(P + "--hazir");
+        if (az || !("IntersectionObserver" in window)) { gor(); return; }
+        const io = new IntersectionObserver((gs) => {
+          gs.forEach((g) => { if (g.isIntersecting) { gor(); io.disconnect(); } });
+        }, { threshold: 0.15 });
+        io.observe(s);
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      gozlem(s, P, az);
+    });
+  })();
+</script>

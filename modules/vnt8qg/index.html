@@ -1,0 +1,99 @@
+<section class="modulex-surec-ritual-halka{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-surec-ritual-halka-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* surec-ritual-halka — surec-hafta-tahmin süreleri yatay Gantt bandına döker, surec-kontrol-listesi düz satır panelidir; bu modülde adımların süresi tek bir halka (donut) grafikte oran olarak görünür, ortada toplam süre, dilim ↔ satır çift yönlü vurgu — seans/ritüel süresi anlatımı. */
+  .modulex-surec-ritual-halka { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-surec-ritual-halka *, .modulex-surec-ritual-halka *::before, .modulex-surec-ritual-halka *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-surec-ritual-halka :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-surec-ritual-halka :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-surec-ritual-halka :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-surec-ritual-halka :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-surec-ritual-halka img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-surec-ritual-halka) img { height: auto; }
+  .modulex-surec-ritual-halka [hidden] { display: none !important; }
+  .modulex-surec-ritual-halka :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-surec-ritual-halka :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-surec-ritual-halka-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-surec-ritual-halka-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-surec-ritual-halka--bassiz .modulex-surec-ritual-halka-bas { display: none; }
+  .modulex-surec-ritual-halka-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-surec-ritual-halka-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-surec-ritual-halka-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-surec-ritual-halka-bas { max-width: 780px; margin-inline: auto; text-align: center; justify-items: center; }
+  .modulex-surec-ritual-halka-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-surec-ritual-halka-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-surec-ritual-halka-dugme:hover { transform: translateY(-2px); }
+  .modulex-surec-ritual-halka-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-surec-ritual-halka-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-surec-ritual-halka-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-surec-ritual-halka-ritual { display: grid; grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.15fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+  .modulex-surec-ritual-halka-halka { position: relative; width: min(100%, 400px); aspect-ratio: 1; justify-self: center; }
+  .modulex-surec-ritual-halka-dilim { position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from calc(var(--a) * 1turn), color-mix(in srgb, --accent-- min(100%, calc(38% + var(--k) * 20%)), --bg--) 0 calc(var(--p) * 1turn - 1.5deg), transparent 0); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 46px), black calc(100% - 45px)); mask: radial-gradient(farthest-side, transparent calc(100% - 46px), black calc(100% - 45px)); transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.35s ease; }
+  .modulex-surec-ritual-halka-dilim.modulex-surec-ritual-halka-on { transform: scale(1.06); filter: drop-shadow(0 8px 14px color-mix(in srgb, --text-- 30%, transparent)); }
+  .modulex-surec-ritual-halka-merkez { position: absolute; inset: 64px; display: grid; place-content: center; justify-items: center; gap: 4px; border-radius: 50%; background: --kartBg--; text-align: center; }
+  .modulex-surec-ritual-halka-mtop { font-size: clamp(2rem, 4vw, 3rem); font-weight: 850; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+  .modulex-surec-ritual-halka-metk { color: --muted--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .modulex-surec-ritual-halka-mikon2 { color: --accentInk--; font-size: 64px; }
+  .modulex-surec-ritual-halka-lejant { display: grid; gap: 10px; }
+  .modulex-surec-ritual-halka-satir2 { position: relative; display: grid; grid-template-columns: 42px minmax(0, 1fr) auto; gap: 16px; align-items: start; padding: 16px 18px; border-radius: --yuvarlak--; background-color: transparent; transition: background-color 0.25s ease, transform 0.25s ease; }
+  .modulex-surec-ritual-halka-satir2.modulex-surec-ritual-halka-on { background-color: --kartBg--; transform: translateX(0) scale(1.01); }
+  .modulex-surec-ritual-halka-isaret2 { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; background: color-mix(in srgb, --accent-- min(100%, calc(38% + var(--k) * 20%)), --bg--); color: --text--; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .modulex-surec-ritual-halka-sgovde { display: grid; gap: 4px; }
+  .modulex-surec-ritual-halka-sgovde .modulex-surec-ritual-halka-kbaslik { font-size: 1.1rem; font-weight: 750; }
+  .modulex-surec-ritual-halka-sgovde .modulex-surec-ritual-halka-kmetin { color: --muted--; font-size: 0.93rem; }
+  .modulex-surec-ritual-halka-dk { color: --accentInk--; font-size: 1.15rem; font-weight: 800; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  @media (max-width: 1024px) { .modulex-surec-ritual-halka-merkez { inset: 54px; } }
+  @media (max-width: 768px) {
+    .modulex-surec-ritual-halka-ritual { grid-template-columns: minmax(0, 1fr); }
+    .modulex-surec-ritual-halka-halka { width: min(100%, 260px); }
+    .modulex-surec-ritual-halka-dilim { -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 34px), black calc(100% - 33px)); mask: radial-gradient(farthest-side, transparent calc(100% - 34px), black calc(100% - 33px)); }
+    .modulex-surec-ritual-halka-merkez { inset: 46px; }
+    .modulex-surec-ritual-halka-satir2 { grid-template-columns: 36px minmax(0, 1fr); gap: 12px; padding: 14px 12px; }
+    .modulex-surec-ritual-halka-isaret2 { width: 36px; height: 36px; }
+    .modulex-surec-ritual-halka-dk { grid-column: 2; }
+  }
+  .modulex-surec-ritual-halka-sure { display: inline-flex; align-items: center; gap: 6px; justify-self: start; width: fit-content; padding: 4px 12px; border-radius: 999px; background: color-mix(in srgb, --accent-- 12%, transparent); color: --text--; font-size: 0.85rem; font-weight: 600; }
+  .modulex-surec-ritual-halka-sure .material-symbols-outlined { font-size: 18px; color: --accentInk--; }
+  .modulex-surec-ritual-halka-etiket { color: --accentInk--; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+
+  .modulex-surec-ritual-halka-bag { color: inherit; text-decoration: none; }
+  .modulex-surec-ritual-halka-bag::after { content: ""; position: absolute; inset: 0; z-index: 3; }
+  .modulex-surec-ritual-halka-bag:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-surec-ritual-halka :is(.modulex-surec-ritual-halka-baslik, .modulex-surec-ritual-halka-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-surec-ritual-halka-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-surec-ritual-halka { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-surec-ritual-halka *, .modulex-surec-ritual-halka *::before, .modulex-surec-ritual-halka *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+<script>
+  (() => {
+    const P = "modulex-surec-ritual-halka";
+    const az = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const ikizVurgu = (s, P) => {
+        const es = [...s.querySelectorAll("[data-iv]")];
+        es.forEach((e) => {
+          const ikiz = () => es.filter((x) => x.dataset.iv === e.dataset.iv);
+          ["mouseenter", "focusin"].forEach((t) => e.addEventListener(t, () => ikiz().forEach((x) => x.classList.add(P + "-on"))));
+          ["mouseleave", "focusout"].forEach((t) => e.addEventListener(t, () => ikiz().forEach((x) => x.classList.remove(P + "-on"))));
+        });
+      };
+    document.querySelectorAll("." + P).forEach((s) => {
+      if (s.dataset.fbHazir) return;
+      s.dataset.fbHazir = "1";
+      ikizVurgu(s, P, az);
+    });
+  })();
+</script>

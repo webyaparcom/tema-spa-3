@@ -1,0 +1,101 @@
+<section class="modulex-iletisim-pusula{{fbsinif}}" {{fbetiket}}>
+  <div class="modulex-iletisim-pusula-ic">
+    {{fbbas}}
+    {{fbgovde}}
+  </div>
+</section>
+
+<style>
+  /* iletisim-pusula — Ailedeki tüm modüller satır/ızgara/sütun dizer; bu modül RADYAL: container query birimi (cqi) ile yarıçap, rotate → translateX → ters rotate ile dik kalan uydular, --i/--n açısı ve dönen yörünge — kanal sayısı arttıkça kendini listeye çevirir. */
+  .modulex-iletisim-pusula { box-sizing: border-box; width: 100%; padding: --bosluk-- 20px; background: --bg--; color: --text--; font-size: 1rem; line-height: 1.6; font-family: var(--mx-font-sans, inherit); overflow-wrap: break-word; }
+  .modulex-iletisim-pusula *, .modulex-iletisim-pusula *::before, .modulex-iletisim-pusula *::after { box-sizing: border-box; }
+  /* ham/css.css «* { font-size: 14px }» kalıtımı keser — modül içinde boyut üstten gelsin (ikon yazı tipi hariç) */
+  .modulex-iletisim-pusula :where(*:not(.material-symbols-outlined)) { font-size: inherit; }
+  /* aynı «*» kuralı font-weight 400 · line-height 1.2 · font-family de basar — modül içinde kalıtım */
+  .modulex-iletisim-pusula :where(*:not(.material-symbols-outlined)) { font-weight: inherit; line-height: inherit; font-family: inherit; }
+  .modulex-iletisim-pusula :where(h2, h3, h4, p, ul, ol, li, figure, blockquote, dl, dd) { margin: 0; }
+  .modulex-iletisim-pusula :where(ul, ol) { padding: 0; list-style: none; }
+  .modulex-iletisim-pusula img { display: block; max-width: 100%; }
+  /* <img width height> öznitelik yüksekliği CSS aspect-ratio'yu ezer — sıfır özgüllükle auto (modül sınıfının height'ı yine kazanır) */
+  :where(.modulex-iletisim-pusula) img { height: auto; }
+  .modulex-iletisim-pusula [hidden] { display: none !important; }
+  .modulex-iletisim-pusula :where(a, button, summary, [data-cevir]) { cursor: pointer; }
+  .modulex-iletisim-pusula :where(a, button, summary, [tabindex]):focus-visible { outline: 3px solid --accent--; outline-offset: 3px; }
+  .modulex-iletisim-pusula-ic { max-width: --max--; margin-inline: auto; }
+  .modulex-iletisim-pusula-bas { display: grid; gap: 12px; margin-block-end: clamp(32px, 4vw, 52px); }
+  .modulex-iletisim-pusula--bassiz .modulex-iletisim-pusula-bas { display: none; }
+  .modulex-iletisim-pusula-ust { color: --accentInk--; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+  .modulex-iletisim-pusula-baslik { font-family: var(--mx-font-heading, inherit); font-size: clamp(1.8rem, 3.4vw, 2.8rem); font-weight: 750; letter-spacing: -0.025em; line-height: 1.1; }
+  .modulex-iletisim-pusula-metin { color: --muted--; font-size: 1.05rem; line-height: 1.7; }
+  .modulex-iletisim-pusula-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 8px; }
+  .modulex-iletisim-pusula-dugme { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 12px 22px; border: 2px solid --accent--; border-radius: 999px; background: --accent--; color: --accentText--; font-weight: 700; text-decoration: none; transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease; }
+  .modulex-iletisim-pusula-dugme:hover { transform: translateY(-2px); }
+  .modulex-iletisim-pusula-dugme--ikincil { background: transparent; color: --text--; border-color: --cizgi--; }
+  .modulex-iletisim-pusula-dugme--ikincil:hover { border-color: --accent--; }
+  .modulex-iletisim-pusula-dugme .material-symbols-outlined { font-size: 20px; }
+
+  .modulex-iletisim-pusula-duzen { display: grid; grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+  .modulex-iletisim-pusula-yazi { display: grid; gap: 16px; min-width: 0; }
+  .modulex-iletisim-pusula-halka { position: relative; container-type: inline-size; inline-size: min(100%, 660px); aspect-ratio: 1; margin-inline: auto; }
+  .modulex-iletisim-pusula-halka::before, .modulex-iletisim-pusula-halka::after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
+  .modulex-iletisim-pusula-halka::before { inset: 9%; border: 2px dashed color-mix(in srgb, --accent-- 40%, transparent); animation: modulex-iletisim-pusula-don 80s linear infinite; }
+  .modulex-iletisim-pusula-halka::after { inset: 30%; border: 1px solid --cizgi--; background: radial-gradient(circle, color-mix(in srgb, --accent-- 10%, transparent), transparent 70%); }
+  @keyframes modulex-iletisim-pusula-don { to { transform: rotate(1turn); } }
+  .modulex-iletisim-pusula-merkez { position: absolute; inset-block-start: 37cqi; inset-inline-start: 37cqi; z-index: 1; display: grid; place-items: center; inline-size: 26cqi; block-size: 26cqi; border-radius: 50%; background: --accent--; color: --accentText--; box-shadow: 0 0 0 12px color-mix(in srgb, --accent-- 16%, transparent); }
+  .modulex-iletisim-pusula-mikon { font-size: 10cqi; animation: modulex-iletisim-pusula-yon 6s ease-in-out infinite; }
+  @keyframes modulex-iletisim-pusula-yon { 0%, 100% { transform: rotate(-20deg); } 50% { transform: rotate(25deg); } }
+  .modulex-iletisim-pusula-uydular { position: absolute; inset: 0; display: grid; place-items: center; }
+  .modulex-iletisim-pusula-uydu { --a: calc(var(--i) / var(--n) * 1turn - 0.25turn); grid-area: 1 / 1; z-index: 2; display: grid; justify-items: center; gap: 4px; inline-size: min(30cqi, 200px); padding: 14px 12px; border-radius: --yuvarlak--; background: --bg--; text-align: center; box-shadow: 0 16px 36px -22px color-mix(in srgb, --text-- 55%, transparent), 0 0 0 1px --cizgi--; transform: rotate(var(--a)) translateX(33cqi) rotate(calc(var(--a) * -1)); animation: modulex-iletisim-pusula-bel 0.7s cubic-bezier(0.2, 0.8, 0.3, 1.2) both; animation-delay: calc(var(--i) * 90ms); transition: box-shadow 0.25s ease; }
+  .modulex-iletisim-pusula-uydu:hover { z-index: 3; box-shadow: 0 16px 36px -22px color-mix(in srgb, --text-- 55%, transparent), 0 0 0 2px --accent--; }
+  @keyframes modulex-iletisim-pusula-bel { from { opacity: 0; scale: 0.3; } to { opacity: 1; scale: 1; } }
+  .modulex-iletisim-pusula-uikon { color: --accentInk--; font-size: 26px; }
+  .modulex-iletisim-pusula-uydu .modulex-iletisim-pusula-deger { font-size: 0.95rem; }
+  .modulex-iletisim-pusula-halka--liste { aspect-ratio: auto; inline-size: 100%; }
+  .modulex-iletisim-pusula-halka--liste::before, .modulex-iletisim-pusula-halka--liste::after, .modulex-iletisim-pusula-halka--liste .modulex-iletisim-pusula-merkez { display: none; }
+  .modulex-iletisim-pusula-halka--liste .modulex-iletisim-pusula-uydular { position: static; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; }
+  .modulex-iletisim-pusula-halka--liste .modulex-iletisim-pusula-uydu { grid-area: auto; inline-size: 100%; transform: none; justify-items: start; text-align: start; }
+  @media (max-width: 1024px) {
+    .modulex-iletisim-pusula-duzen { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .modulex-iletisim-pusula-halka { aspect-ratio: auto; inline-size: 100%; }
+    .modulex-iletisim-pusula-halka::before, .modulex-iletisim-pusula-halka::after, .modulex-iletisim-pusula-merkez { display: none; }
+    .modulex-iletisim-pusula-uydular { position: static; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .modulex-iletisim-pusula-uydu { grid-area: auto; inline-size: 100%; transform: none; justify-items: start; text-align: start; }
+  }
+  .modulex-iletisim-pusula-kikon { flex: none; display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: color-mix(in srgb, --accent-- 14%, transparent); color: --accentInk--; font-size: 24px; }
+  .modulex-iletisim-pusula-ketiket { display: block; color: --muted--; font-size: 0.82rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase; }
+  .modulex-iletisim-pusula-deger { color: inherit; font-weight: 650; text-decoration: none; overflow-wrap: anywhere; transition: color 0.2s ease; }
+  a.modulex-iletisim-pusula-deger:hover { color: --accentInk--; text-decoration: underline; text-underline-offset: 4px; }
+  .modulex-iletisim-pusula-eylem { display: inline-flex; align-items: center; gap: 6px; color: --accentInk--; font-weight: 700; text-decoration: none; transition: gap 0.2s ease; }
+  .modulex-iletisim-pusula-eylem:hover { gap: 10px; }
+  .modulex-iletisim-pusula-eylem .material-symbols-outlined { font-size: 18px; }
+  .modulex-iletisim-pusula-kopya { display: none; align-items: center; gap: 6px; min-height: 36px; padding: 6px 12px; border: 1px solid --cizgi--; border-radius: 999px; background: transparent; color: --text--; font: inherit; font-size: 0.85rem; font-weight: 650; transition: border-color 0.2s ease, background 0.2s ease; }
+  .modulex-iletisim-pusula--kjs .modulex-iletisim-pusula-kopya { display: inline-flex; }
+  .modulex-iletisim-pusula-kopya:hover { border-color: --accent--; }
+  .modulex-iletisim-pusula-kopya .material-symbols-outlined { font-size: 18px; }
+  .modulex-iletisim-pusula--kopyalandi { background: color-mix(in srgb, --accent-- 14%, transparent); }
+  .modulex-iletisim-pusula-sosyal { display: grid; gap: 10px; }
+  .modulex-iletisim-pusula-sbaslik { color: --muted--; font-size: 0.9rem; font-weight: 650; }
+  .modulex-iletisim-pusula-sliste { display: flex; flex-wrap: wrap; gap: 8px; }
+  .modulex-iletisim-pusula-cip { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 8px 14px; border: 1px solid --cizgi--; border-radius: 999px; color: inherit; font-weight: 650; text-decoration: none; transition: border-color 0.2s ease, transform 0.2s ease; }
+  .modulex-iletisim-pusula-cip:hover { border-color: --accent--; transform: translateY(-2px); }
+  .modulex-iletisim-pusula-cikon { font-size: 18px; }
+  .modulex-iletisim-pusula-harita { position: relative; overflow: hidden; min-height: 280px; border-radius: --yuvarlak--; background: --kartBg--; }
+  .modulex-iletisim-pusula-iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .modulex-iletisim-pusula-hdesen { position: absolute; inset: 0; display: grid; place-items: center; background-color: color-mix(in srgb, --accent-- 8%, --kartBg--); background-image: linear-gradient(color-mix(in srgb, --text-- 7%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, --text-- 7%, transparent) 1px, transparent 1px), radial-gradient(circle at 30% 40%, color-mix(in srgb, --accent-- 18%, transparent) 0 18%, transparent 19%); background-size: 36px 36px, 36px 36px, 100% 100%; }
+  .modulex-iletisim-pusula-pin { color: --accentInk--; font-size: 56px; animation: modulex-iletisim-pusula-zipla 2.4s ease-in-out infinite; }
+  @keyframes modulex-iletisim-pusula-zipla { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .modulex-iletisim-pusula-hyol { position: absolute; inset-block-end: 16px; inset-inline-start: 16px; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 10px 16px; border-radius: 999px; background: --bg--; color: --text--; font-weight: 700; text-decoration: none; box-shadow: 0 6px 20px color-mix(in srgb, --text-- 16%, transparent); transition: transform 0.2s ease; }
+  .modulex-iletisim-pusula-hyol:hover { transform: translateY(-2px); }
+  .modulex-iletisim-pusula-hyol .material-symbols-outlined { font-size: 18px; color: --accentInk--; }
+
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-iletisim-pusula :is(.modulex-iletisim-pusula-baslik, .modulex-iletisim-pusula-ust, h3, h4, strong) { letter-spacing: 0; }
+  :is([lang="ar"], [lang="fa"], [lang="he"], [lang="ur"]) .modulex-iletisim-pusula-baslik { line-height: 1.35; }
+  @media (max-width: 768px) {
+    .modulex-iletisim-pusula { padding-inline: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modulex-iletisim-pusula *, .modulex-iletisim-pusula *::before, .modulex-iletisim-pusula *::after { animation: none !important; transition: none !important; }
+  }
+</style>

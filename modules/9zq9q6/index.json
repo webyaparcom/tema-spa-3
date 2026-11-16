@@ -1,0 +1,54 @@
+{
+  "name": "Randevu Hizmet Sepeti — çoklu hizmet seçimi, canlı süre ve fiyat toplamı",
+  "description": "Üstte hizmet karoları çoklu seçilir (ikon, ad, açıklama, süre · fiyat, + / ✓ rozeti). Altında kasa fişi bandı: seçilenler listesi, adet, canlı toplam süre ve toplam tutar (sayfa dilinde), yanında tarih, saat, ad, telefon ve gönder. Gönderimde seçilen hizmetler tek satırda, toplam ayrı satırda; .ics takvim süresi toplam süre. Seçim yoksa gönderim uyarır. JS yokken karolar işaretlenir, toplam fişi gizli. Tüm randevu-* modülleri tek hizmet (radyo/açılır liste) seçtirir; bu modül sepet mantığıyla birden çok hizmeti checkbox ile toplar ve toplam süre/tutarı canlı hesaplar (sepet parçası). randevu-yan-ozet'in yapışkan özet kartı yerine karo menü + kesik kenarlı kasa fişi bandı iskeleti. Sunucusuz gönderim (formAction JSON POST › WhatsApp › .ics › mailto), kapalı gün denetimi, KVKK onayı. Metinler dil sözlüğü, renkler desing + var(--mx-site-*), mantıksal CSS → RTL. Gönderim yolu yoksa blok basılmaz.",
+  "version": "1.0.0",
+  "icon": "shopping_bag",
+  "category": "randevu",
+  "subCategory": "service-basket",
+  "tags": [
+    "randevu",
+    "basket",
+    "multi-select",
+    "total",
+    "salon",
+    "rtl",
+    "fabrika"
+  ],
+  "desing": {
+    "max": "1200px",
+    "bosluk": "clamp(56px, 8vw, 104px)",
+    "yuvarlak": "18px",
+    "ust": "",
+    "baslik": "",
+    "metin": "",
+    "bg": "var(--mx-site-bg, #ffffff)",
+    "text": "var(--mx-site-text, #111318)",
+    "muted": "color-mix(in srgb, var(--mx-site-text, #111318) 68%, var(--mx-site-bg, #ffffff))",
+    "kartBg": "var(--mx-site-surface, #f6f7f9)",
+    "cizgi": "color-mix(in srgb, var(--mx-site-text, #111318) 12%, transparent)",
+    "accent": "var(--mx-site-primary, #2563eb)",
+    "accentInk": "color-mix(in srgb, var(--mx-site-primary, #2563eb) 70%, var(--mx-site-text, #111318))",
+    "accentText": "var(--mx-site-primary-contrast, #ffffff)",
+    "vurguBg": "var(--mx-site-primary, #2563eb)",
+    "vurguText": "var(--mx-site-primary-contrast, #ffffff)",
+    "sepetBos": "",
+    "toplamAd": "",
+    "sureAd": "",
+    "bgcolor": "var(--mx-site-bg, #ffffff)",
+    "color": "var(--mx-site-text, #111318)"
+  },
+  "data": [],
+  "veri": {
+    "statik": true,
+    "dinamik": false,
+    "kaynak": "desing",
+    "alanlar": {
+      "ad": "hizmet adı (dil sözlüğü, zorunlu) — eski `services[].name`",
+      "sure": "dakika — eski `duration`",
+      "fiyat": "sayı (sayfa diliyle biçimlenir) — eski `price`",
+      "ikon": "Material Symbols adı",
+      "metin": "kısa açıklama (dil sözlüğü)",
+      "img": "görsel (destekleyen yerleşimde)"
+    }
+  }
+}
