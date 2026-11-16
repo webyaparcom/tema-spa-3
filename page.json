@@ -1,0 +1,112 @@
+{
+  "data": [
+    {
+      "id": "9q1txr2uka",
+      "name": {
+        "tr": "Ritüeller",
+        "en": "Rituals",
+        "ar": "الطقوس"
+      },
+      "description": {
+        "tr": "90 dakikalık imza ritüeli ve sık sorulanlar.",
+        "en": "The 90-minute signature ritual and common questions.",
+        "ar": "الطقس المميز في 90 دقيقة والأسئلة الشائعة."
+      },
+      "path": "hizmetler",
+      "icon": "waves",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "vnt8qg",
+          "d2zrv3"
+        ],
+        "footer": []
+      },
+      "index": 0
+    },
+    {
+      "name": {
+        "tr": "Mevsimler",
+        "en": "Seasons",
+        "ar": "المواسم"
+      },
+      "status": "play",
+      "id": "hakkimizda",
+      "path": "hakkimizda",
+      "category": "",
+      "url": "",
+      "index": 1,
+      "icon": "wb_sunny",
+      "desing": {
+        "header": [],
+        "body": [
+          "04iuhd",
+          "qe08z5"
+        ],
+        "footer": []
+      },
+      "pathnext": "",
+      "description": {
+        "tr": "Mevsim ritüelleri ve beş ilkemiz (kurgusal).",
+        "en": "Seasonal rituals and our five principles (fictional).",
+        "ar": "الطقوس الموسمية ومبادئنا الخمسة (افتراضية)."
+      }
+    },
+    {
+      "id": "qa2mzz30xh",
+      "name": {
+        "tr": "Randevu",
+        "en": "Book",
+        "ar": "الحجز"
+      },
+      "description": {
+        "tr": "Hizmet sepetiyle randevu talebi; fiyatlar KDV dahil (demo).",
+        "en": "Booking request with a service basket; prices incl. VAT (demo).",
+        "ar": "طلب حجز بسلة خدمات؛ الأسعار شاملة الضريبة (تجريبي)."
+      },
+      "path": "teklif-al",
+      "icon": "shopping_basket",
+      "category": "",
+      "status": "play",
+      "desing": {
+        "header": [],
+        "body": [
+          "9zq9q6"
+        ],
+        "footer": []
+      },
+      "index": 2
+    },
+    {
+      "name": {
+        "tr": "İletişim",
+        "en": "Contact",
+        "ar": "التواصل"
+      },
+      "status": "play",
+      "id": "iletisim",
+      "path": "iletisim",
+      "category": "",
+      "url": "",
+      "index": 3,
+      "icon": "call",
+      "desing": {
+        "header": [],
+        "body": [
+          "eydjqz",
+          "k8mp01"
+        ],
+        "footer": []
+      },
+      "pathnext": "",
+      "description": {
+        "tr": "Adres, telefon ve çalışma saatleri.",
+        "en": "Address, phone and opening hours.",
+        "ar": "العنوان والهاتف وساعات العمل."
+      }
+    }
+  ],
+  "desc": []
+}

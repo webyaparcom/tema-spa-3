@@ -1,0 +1,40 @@
+{
+  "id": "9q1txr2uka",
+  "name": {
+    "tr": "Ritüeller",
+    "en": "Rituals",
+    "ar": "الطقوس"
+  },
+  "description": {
+    "tr": "90 dakikalık imza ritüeli ve sık sorulanlar.",
+    "en": "The 90-minute signature ritual and common questions.",
+    "ar": "الطقس المميز في 90 دقيقة والأسئلة الشائعة."
+  },
+  "keyword": {
+    "tr": "spa ritüeli, hamam, kese köpük",
+    "en": "spa ritual, hammam, scrub and foam",
+    "ar": "طقس سبا، حمّام، تقشير ورغوة"
+  },
+  "path": "hizmetler",
+  "icon": "waves",
+  "category": "",
+  "status": "play",
+  "desing": {
+    "header": [],
+    "body": [
+      "vnt8qg",
+      "d2zrv3"
+    ],
+    "footer": []
+  },
+  "index": 0,
+  "url": "",
+  "text": {},
+  "title": {
+    "tr": "Ritüeller",
+    "en": "Rituals",
+    "ar": "الطقوس"
+  },
+  "date": "2026-11-16T20:20:21.120Z",
+  "update": "2026-11-16T20:23:12.385Z"
+}

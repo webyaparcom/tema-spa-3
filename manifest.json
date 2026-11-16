@@ -1,0 +1,29 @@
+{
+  "name": "Akçakum Tuz Spa",
+  "short_name": "Akçakum Tuz",
+  "description": "Akçakum Tuz Spa: Bodrum’da tuz odası, hamam, köpük, kese ve yüz bakımı; hizmet sepetiyle randevu, süreleri önceden belli ritüeller. Demo site; görseller temsilîdir.",
+  "start_url": "/tr/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2A7189",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "/img/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/icon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": {
+    "tr": "Mevsimler",
+    "en": "Seasons",
+    "ar": "المواسم"
+  },
+  "status": "play",
+  "category": "",
+  "id": "hakkimizda",
+  "url": "",
+  "path": "hakkimizda",
+  "index": 1,
+  "icon": "wb_sunny",
+  "desing": {
+    "header": [],
+    "body": [
+      "04iuhd",
+      "qe08z5"
+    ],
+    "footer": []
+  },
+  "pathnext": "",
+  "description": {
+    "tr": "Mevsim ritüelleri ve beş ilkemiz (kurgusal).",
+    "en": "Seasonal rituals and our five principles (fictional).",
+    "ar": "الطقوس الموسمية ومبادئنا الخمسة (افتراضية)."
+  },
+  "spot": {
+    "tr": "",
+    "en": "",
+    "ar": ""
+  },
+  "desc": {},
+  "title": {
+    "tr": "Mevsimler",
+    "en": "Seasons",
+    "ar": "المواسم"
+  },
+  "keyword": {
+    "tr": "mevsim ritüeli, tuz odası",
+    "en": "seasonal ritual, salt room",
+    "ar": "طقس موسمي، غرفة الملح"
+  },
+  "text": {},
+  "update": "2026-11-16T20:23:12.390Z",
+  "date": "2026-10-30"
+}
