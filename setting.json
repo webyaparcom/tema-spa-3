@@ -4,12 +4,16 @@
   "description": {
     "tr": "Akçakum Tuz Spa: Bodrum’da tuz odası, hamam, köpük, kese ve yüz bakımı; hizmet sepetiyle randevu, süreleri önceden belli ritüeller. Demo site; görseller temsilîdir.",
     "en": "Akcakum Salt Spa: a salt room, hammam, foam, scrub and facials in Bodrum; booking with a service basket and rituals with timings set in advance. Demo site; images are representative.",
-    "ar": "أكتشاكوم سولت سبا: غرفة ملح وحمّام ورغوة وتقشير وعناية بالوجه في بودروم؛ حجز بسلة خدمات وطقوس بمدد معروفة مسبقًا. موقع تجريبي؛ الصور تمثيلية."
+    "ar": "أكتشاكوم سولت سبا: غرفة ملح وحمّام ورغوة وتقشير وعناية بالوجه في بودروم؛ حجز بسلة خدمات وطقوس بمدد معروفة مسبقًا. موقع تجريبي؛ الصور تمثيلية.",
+    "de": "Akçakum Tuz Spa: Salzraum, Hamam, Schaum, Peeling und Gesichtspflege in Bodrum; Terminbuchung über den Leistungskorb, Rituale mit vorab bekannter Dauer. Demo-Website; Bilder sind symbolisch.",
+    "ru": "Akçakum Tuz Spa: соляная комната, хаммам, пенный массаж, пилинг и уход за лицом в Бодруме; запись через корзину услуг, ритуалы с заранее известной длительностью. Демо-сайт; изображения иллюстративные."
   },
   "keyword": {
     "tr": "spa, tuz odası, hamam, köpük masajı, kese, yüz bakımı, Bodrum",
     "en": "spa, salt room, hammam, foam massage, scrub, facial, Bodrum",
-    "ar": "سبا، غرفة الملح، حمّام، تدليك بالرغوة، تقشير، عناية بالوجه، بودروم"
+    "ar": "سبا، غرفة الملح، حمّام، تدليك بالرغوة، تقشير، عناية بالوجه، بودروم",
+    "de": "Spa, Salzraum, Hamam, Schaummassage, Peeling, Gesichtspflege, Bodrum",
+    "ru": "спа, соляная комната, хамам, пенный массаж, пилинг, уход за лицом, Бодрум"
   },
   "category": "Kurumsal",
   "name": "Akçakum Tuz Spa",
@@ -18,15 +22,27 @@
     "tr": true,
     "en": true,
     "ar": true,
-    "de": false,
-    "ru": false,
+    "de": true,
+    "ru": true,
     "es": false,
     "fr": false,
     "it": false,
     "ja": false,
     "zh": false,
     "ko": false,
-    "pt": false
+    "pt": false,
+    "fa": false,
+    "he": false,
+    "ur": false,
+    "nl": false,
+    "pl": false,
+    "uk": false,
+    "az": false,
+    "ka": false,
+    "el": false,
+    "bg": false,
+    "ro": false,
+    "hi": false
   },
   "logo": "logo.png",
   "multi": false,

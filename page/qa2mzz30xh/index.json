@@ -3,17 +3,23 @@
   "name": {
     "tr": "Randevu",
     "en": "Book",
-    "ar": "الحجز"
+    "ar": "الحجز",
+    "de": "Termin",
+    "ru": "Запись"
   },
   "description": {
     "tr": "Hizmet sepetiyle randevu talebi; fiyatlar KDV dahil (demo).",
     "en": "Booking request with a service basket; prices incl. VAT (demo).",
-    "ar": "طلب حجز بسلة خدمات؛ الأسعار شاملة الضريبة (تجريبي)."
+    "ar": "طلب حجز بسلة خدمات؛ الأسعار شاملة الضريبة (تجريبي).",
+    "de": "Terminanfrage über den Leistungskorb; Preise inklusive MwSt. (Demo).",
+    "ru": "Заявка на запись через корзину услуг; цены с НДС (демо)."
   },
   "keyword": {
     "tr": "spa randevu, fiyat",
     "en": "spa booking, price",
-    "ar": "حجز سبا، سعر"
+    "ar": "حجز سبا، سعر",
+    "de": "Spa-Termin, Preis",
+    "ru": "запись в спа, цена"
   },
   "path": "teklif-al",
   "icon": "shopping_basket",
@@ -32,7 +38,9 @@
   "title": {
     "tr": "Randevu",
     "en": "Book",
-    "ar": "الحجز"
+    "ar": "الحجز",
+    "de": "Termin",
+    "ru": "Запись"
   },
   "date": "2026-11-16T20:20:21.133Z",
   "update": "2026-11-16T20:23:12.394Z"

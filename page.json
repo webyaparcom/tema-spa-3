@@ -5,12 +5,16 @@
       "name": {
         "tr": "Ritüeller",
         "en": "Rituals",
-        "ar": "الطقوس"
+        "ar": "الطقوس",
+        "de": "Rituale",
+        "ru": "Ритуалы"
       },
       "description": {
         "tr": "90 dakikalık imza ritüeli ve sık sorulanlar.",
         "en": "The 90-minute signature ritual and common questions.",
-        "ar": "الطقس المميز في 90 دقيقة والأسئلة الشائعة."
+        "ar": "الطقس المميز في 90 دقيقة والأسئلة الشائعة.",
+        "de": "Das 90-minütige Signaturritual und häufige Fragen.",
+        "ru": "90-минутный ритуал подписания и частые вопросы."
       },
       "path": "hizmetler",
       "icon": "waves",
@@ -30,7 +34,9 @@
       "name": {
         "tr": "Mevsimler",
         "en": "Seasons",
-        "ar": "المواسم"
+        "ar": "المواسم",
+        "de": "Saisons",
+        "ru": "Сезоны"
       },
       "status": "play",
       "id": "hakkimizda",
@@ -51,7 +57,9 @@
       "description": {
         "tr": "Mevsim ritüelleri ve beş ilkemiz (kurgusal).",
         "en": "Seasonal rituals and our five principles (fictional).",
-        "ar": "الطقوس الموسمية ومبادئنا الخمسة (افتراضية)."
+        "ar": "الطقوس الموسمية ومبادئنا الخمسة (افتراضية).",
+        "de": "Saisonale Rituale und unsere fünf Grundsätze (fiktiv).",
+        "ru": "Сезонные ритуалы и наши пять принципов (условные)."
       }
     },
     {
@@ -59,12 +67,16 @@
       "name": {
         "tr": "Randevu",
         "en": "Book",
-        "ar": "الحجز"
+        "ar": "الحجز",
+        "de": "Termin",
+        "ru": "Запись"
       },
       "description": {
         "tr": "Hizmet sepetiyle randevu talebi; fiyatlar KDV dahil (demo).",
         "en": "Booking request with a service basket; prices incl. VAT (demo).",
-        "ar": "طلب حجز بسلة خدمات؛ الأسعار شاملة الضريبة (تجريبي)."
+        "ar": "طلب حجز بسلة خدمات؛ الأسعار شاملة الضريبة (تجريبي).",
+        "de": "Terminanfrage über den Leistungskorb; Preise inklusive MwSt. (Demo).",
+        "ru": "Заявка на запись через корзину услуг; цены с НДС (демо)."
       },
       "path": "teklif-al",
       "icon": "shopping_basket",
@@ -83,7 +95,9 @@
       "name": {
         "tr": "İletişim",
         "en": "Contact",
-        "ar": "التواصل"
+        "ar": "التواصل",
+        "de": "Kontakt",
+        "ru": "Контакты"
       },
       "status": "play",
       "id": "iletisim",
@@ -104,7 +118,9 @@
       "description": {
         "tr": "Adres, telefon ve çalışma saatleri.",
         "en": "Address, phone and opening hours.",
-        "ar": "العنوان والهاتف وساعات العمل."
+        "ar": "العنوان والهاتف وساعات العمل.",
+        "de": "Adresse, Telefon und Öffnungszeiten.",
+        "ru": "Адрес, телефон и часы работы."
       }
     }
   ],
