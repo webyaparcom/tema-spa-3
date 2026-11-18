@@ -2,7 +2,9 @@
   "name": {
     "tr": "Mevsimler",
     "en": "Seasons",
-    "ar": "المواسم"
+    "ar": "المواسم",
+    "de": "Saisons",
+    "ru": "Сезоны"
   },
   "status": "play",
   "category": "",
@@ -23,7 +25,9 @@
   "description": {
     "tr": "Mevsim ritüelleri ve beş ilkemiz (kurgusal).",
     "en": "Seasonal rituals and our five principles (fictional).",
-    "ar": "الطقوس الموسمية ومبادئنا الخمسة (افتراضية)."
+    "ar": "الطقوس الموسمية ومبادئنا الخمسة (افتراضية).",
+    "de": "Saisonale Rituale und unsere fünf Grundsätze (fiktiv).",
+    "ru": "Сезонные ритуалы и наши пять принципов (условные)."
   },
   "spot": {
     "tr": "",
@@ -34,12 +38,16 @@
   "title": {
     "tr": "Mevsimler",
     "en": "Seasons",
-    "ar": "المواسم"
+    "ar": "المواسم",
+    "de": "Saisons",
+    "ru": "Сезоны"
   },
   "keyword": {
     "tr": "mevsim ritüeli, tuz odası",
     "en": "seasonal ritual, salt room",
-    "ar": "طقس موسمي، غرفة الملح"
+    "ar": "طقس موسمي، غرفة الملح",
+    "de": "Saisonritual, Salzraum",
+    "ru": "сезонный ритуал, соляная комната"
   },
   "text": {},
   "update": "2026-11-16T20:23:12.390Z",

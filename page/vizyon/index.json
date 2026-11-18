@@ -3,17 +3,23 @@
   "name": {
     "tr": "Vizyon",
     "en": "Vision",
-    "ar": "الرؤية"
+    "ar": "الرؤية",
+    "de": "Vision",
+    "ru": "Видение"
   },
   "description": {
     "tr": "Vizyonumuz",
     "en": "Our vision",
-    "ar": "رؤيتنا"
+    "ar": "رؤيتنا",
+    "de": "Unsere Vision",
+    "ru": "Наше видение"
   },
   "keyword": {
     "tr": "Vizyon",
     "en": "vision, our vision, goals",
-    "ar": "الرؤية, رؤيتنا, الأهداف"
+    "ar": "الرؤية, رؤيتنا, الأهداف",
+    "de": "Vision",
+    "ru": "Видение"
   },
   "path": "vizyon",
   "icon": "visibility",
@@ -29,12 +35,16 @@
   "text": {
     "tr": "<h2>Vizyonumuz</h2>\n<p>Ege’nin tuz ve hamam geleneğini sade, şeffaf bir ritüel listesiyle yaşatmak.</p>",
     "en": "<h2>Our vision</h2>\n<p>To keep the Aegean salt and hammam tradition alive with a simple, transparent list of rituals.</p>",
-    "ar": "<h2>رؤيتنا</h2>\n<p>إحياء تقاليد الملح والحمّام في بحر إيجه بقائمة طقوس بسيطة وواضحة.</p>"
+    "ar": "<h2>رؤيتنا</h2>\n<p>إحياء تقاليد الملح والحمّام في بحر إيجه بقائمة طقوس بسيطة وواضحة.</p>",
+    "de": "<h2>Unsere Vision</h2>\n<p>Die Tradition von Salz und Hamam an der Ägäis mit einer einfachen, transparenten Ritualliste lebendig zu halten.</p>",
+    "ru": "<h2>Наше видение</h2>\n<p>Поддерживать традицию соли и хаммама Эгейского моря с помощью простого и прозрачного списка ритуалов.</p>"
   },
   "title": {
     "tr": "Vizyon",
     "en": "Vision",
-    "ar": "الرؤية"
+    "ar": "الرؤية",
+    "de": "Vision",
+    "ru": "Видение"
   },
   "date": "2026-11-16T20:20:20.984Z",
   "update": "2026-11-16T20:23:12.406Z",
